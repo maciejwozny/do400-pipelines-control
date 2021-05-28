@@ -1,7 +1,11 @@
 pipeline {
-    ...output omitted...
+    agent {
+        node {
+            label 'nodejs'
+        }
+    }
     stages {
-        stage('Run Tests') {
+	stage('Run Tests') {
             parallel {
                 stage('Backend Tests') {
                     steps {
@@ -15,5 +19,6 @@ pipeline {
                 }
             }
         }
+
     }
 }
